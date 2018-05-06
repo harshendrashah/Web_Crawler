@@ -20,5 +20,9 @@ def get_single_item_data(item_url):
     soup = BeautifulSoup(plain_text, "lxml")
     for item_name in soup.findAll('tr', {'class': 'field-odd field'}):
         print(item_name.string)
-        
+    for link in soup.findAll('a'):
+        href = "https://docs.python.org/3/" + link.get('href')
+        print(href)
+    print('***************************************************************************************************')
+
 py_spider()
